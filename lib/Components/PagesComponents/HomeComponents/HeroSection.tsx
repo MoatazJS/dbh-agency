@@ -6,7 +6,7 @@ import Silk from "@/components/Silk";
 export default function HeroSection() {
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden pt-20 pb-40">
         <div className="absolute inset-0 z-0 bg-slate-950">
           <Silk
             speed={5}

@@ -89,7 +89,7 @@ html {
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] via-white to-[var(--secondary)];
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary via-white to-secondary;
   }
 
   .scrollbar-hide {
