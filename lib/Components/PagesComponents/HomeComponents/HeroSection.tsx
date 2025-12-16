@@ -2,19 +2,18 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import React from "react";
-import Ballpit from "@/components/Ballpit";
+import Silk from "@/components/Silk";
 export default function HeroSection() {
   return (
     <>
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 z-0 bg-slate-950">
-          <Ballpit
-            count={100}
-            gravity={0.1}
-            friction={0.8}
-            wallBounce={0.95}
-            followCursor={true}
-            colors={[0xfacc15, 0x1e3a8a, 0xffffff]}
+          <Silk
+            speed={5}
+            scale={1}
+            color="#111184"
+            noiseIntensity={1.5}
+            rotation={0}
           />
         </div>
         <div className="relative z-10">
