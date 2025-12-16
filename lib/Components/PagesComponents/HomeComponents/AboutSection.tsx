@@ -1,6 +1,7 @@
 "use client";
 import { ParticlesBackground } from "@/components/Particles";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 
 export default function AboutSection() {
@@ -23,7 +24,15 @@ export default function AboutSection() {
               NOT JUST <span className="text-primary italic">LOOKS</span>.
             </h2>
           </motion.div>
-          <div>image</div>
+          <div className="relative w-full h-125 md:h-150 lg:h-175">
+            <Image
+              src="/DbhLogo.png"
+              alt="DBH Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
