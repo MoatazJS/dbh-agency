@@ -3,10 +3,20 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import React from "react";
 import Silk from "@/components/Silk";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function HeroSection() {
+  const heroRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden pt-20 pb-40">
+      <section
+        ref={heroRef}
+        className="relative min-h-screen overflow-hidden pt-20 pb-40"
+      >
         <div className="absolute inset-0 z-0 bg-slate-950">
           <Silk
             speed={5}
