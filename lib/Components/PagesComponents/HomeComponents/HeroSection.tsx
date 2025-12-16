@@ -3,20 +3,11 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import React from "react";
 import Silk from "@/components/Silk";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
+import { TypeAnimation } from "react-type-animation";
 export default function HeroSection() {
-  const heroRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <section
-        ref={heroRef}
-        className="relative min-h-screen overflow-hidden pt-20 pb-40"
-      >
+      <section className="relative min-h-screen overflow-hidden pt-20 pb-40">
         <div className="absolute inset-0 z-0 bg-slate-950">
           <Silk
             speed={5}
@@ -44,11 +35,16 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-8 leading-[0.9] font-artistic"
             >
-              <span className="block bg-linear-to-r from-yellow-400 via-yellow-600 to-yellow-400 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent">
                 VISION
               </span>
               <span className="block bg-linear-to-r from-primary via-yellow-200 to-secondary bg-clip-text text-transparent">
-                UNBOUND
+                <TypeAnimation
+                  sequence={["UNBOUND", 3000, "UNLEASHED", 3000]}
+                  speed={10}
+                  repeat={Infinity}
+                  cursor={true}
+                />
               </span>
             </motion.h1>
 
