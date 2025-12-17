@@ -13,7 +13,7 @@ export default function LogoSection() {
     ];
 
     return (
-        <section className="py-10 bg-black overflow-hidden">
+        <section className="py-2 bg-background overflow-hidden border-y border-white/5">
             <div className="w-full">
                 {/* @ts-ignore - JS component props */}
                 <LogoLoop
