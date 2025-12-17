@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 export default function AboutSection() {
   return (
-    <section className="py-5 relative overflow-hidden min-h-fit">
+    <section className="py-5 relative overflow-hidden min-h-screen md:min-h-fit">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap:6 md:gap-16 lg:gap-16 xl:gap-16 items-center">
           <motion.div

@@ -389,13 +389,7 @@ export default function WorkSection() {
         </div>
 
         {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mt-12 md:mt-16"
-        >
+        <div className="text-center mt-12 md:mt-16">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -416,7 +410,7 @@ export default function WorkSection() {
               transition={{ duration: 0.5 }}
             />
           </motion.button>
-        </motion.div>
+        </div>
       </div>
 
       {/* Decorative elements */}
