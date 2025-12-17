@@ -95,81 +95,11 @@ export default function WorkSection() {
           className="absolute top-0 left-0 w-full h-full"
           style={{
             background: "radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)",
+            willChange: "transform, opacity",
           }}
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-0 right-0 w-full h-full"
-          style={{
-            background: "radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.1) 0%, transparent 50%)",
-          }}
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.4, 0.6, 0.4],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-1/2 w-full h-full"
-          style={{
-            background: "radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%)",
-          }}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.35, 0.55, 0.35],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Animated particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-yellow-400/30 rounded-full"
-              style={{
-                left: `${(i * 37 + 13) % 100}%`,
-                top: `${(i * 53 + 29) % 100}%`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                x: [0, (i % 3 - 1) * 25, 0],
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 5 + (i % 5),
-                repeat: Infinity,
-                delay: i * 0.25,
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Floating Orbs */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div
-          className="absolute top-20 left-10 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.4, 0.3],
           }}
           transition={{
             duration: 15,
@@ -178,11 +108,72 @@ export default function WorkSection() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-0 right-0 w-full h-full"
+          style={{
+            background: "radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.1) 0%, transparent 50%)",
+            willChange: "transform, opacity",
+          }}
           animate={{
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            scale: [1, 1.3, 1],
+            scale: [1.1, 1, 1.1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-1/2 w-full h-full"
+          style={{
+            background: "radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%)",
+            willChange: "transform, opacity",
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.4, 0.3],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Animated particles - Reduced count for performance */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-yellow-400/30 rounded-full"
+              style={{
+                left: `${(i * 37 + 13) % 100}%`,
+                top: `${(i * 53 + 29) % 100}%`,
+                willChange: "transform, opacity",
+              }}
+              animate={{
+                y: [0, -60, 0],
+                x: [0, (i % 3 - 1) * 15, 0],
+                opacity: [0, 0.8, 0],
+              }}
+              transition={{
+                duration: 8 + (i % 5),
+                repeat: Infinity,
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Floating Orbs - Optimized */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl"
+          style={{ willChange: "transform" }}
+          animate={{
+            x: [0, 50, 0],
+            y: [0, -30, 0],
           }}
           transition={{
             duration: 20,
@@ -191,14 +182,27 @@ export default function WorkSection() {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+          style={{ willChange: "transform" }}
           animate={{
-            x: [-100, 100, -100],
-            y: [-50, 50, -50],
-            scale: [1.2, 1, 1.2],
+            x: [0, -40, 0],
+            y: [0, 30, 0],
           }}
           transition={{
-            duration: 18,
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"
+          style={{ willChange: "transform" }}
+          animate={{
+            x: [-50, 50, -50],
+            y: [-20, 20, -20],
+          }}
+          transition={{
+            duration: 22,
             repeat: Infinity,
             ease: "easeInOut",
           }}
