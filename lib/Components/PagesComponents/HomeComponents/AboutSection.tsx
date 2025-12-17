@@ -23,6 +23,16 @@ export default function AboutSection() {
               WE MAKE <span className="text-primary italic">SENSE</span>.<br />
               NOT JUST <span className="text-primary italic">LOOKS</span>.
             </h2>
+            <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed mb-6">
+              We are the place where brands come when they&apos;re ready to
+              become memorable. We blur the line between commerce and creation,
+              crafting identities that don&apos;t shout, but echo.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-zinc-400 leading-relaxed">
+              Unlike agencies that chase fleeting trends, we create work that
+              lives. Not content that vanishes in the scroll, but stories that
+              stay with you.
+            </p>
           </motion.div>
           <div className="relative w-full h-125 md:h-150 lg:h-175">
             <Image

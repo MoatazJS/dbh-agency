@@ -19,6 +19,7 @@ const cinzel = Cinzel({
 
 export const metadata: Metadata = {
   title: "DBH | Creative Advertising Agency",
+  icons: { icon: "/DbhIcon.ico" },
   description:
     "We are the place where brands come when they’re ready to become memorable.",
 };
