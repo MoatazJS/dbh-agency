@@ -10,7 +10,7 @@ export default function HeroSection() {
       <section className="relative min-h-screen overflow-hidden pt-20 pb-40">
         <div className="absolute inset-0 z-0 bg-slate-950">
           <Silk
-            speed={5}
+            speed={15}
             scale={1}
             color="#111184"
             noiseIntensity={1.5}

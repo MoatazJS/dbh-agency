@@ -2,7 +2,6 @@
 import { easeInOut, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-
 export default function AboutSection() {
   return (
     <section className="py-5 relative overflow-hidden min-h-fit">
@@ -13,7 +12,7 @@ export default function AboutSection() {
             whileInView={{
               opacity: 1,
               x: 0,
-              transition: { duration: 0.8, ease: "easeOut" },
+              transition: { duration: 1.2, ease: "easeOut" },
             }}
             viewport={{ once: true, margin: "-100px" }}
             className="order-2 md:order-1"
