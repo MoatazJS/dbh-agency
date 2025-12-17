@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import Ballpit from "@/components/Ballpit";
+// import Ballpit from "@/components/Ballpit";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -17,20 +17,22 @@ const ContactSection = () => {
     return (
         <section className="relative min-h-screen w-full overflow-hidden" id="contact">
             {/* Background Ballpit */}
-            <div className="absolute inset-0 z-0">
+            {/* <div className="absolute inset-0 z-0">
                 <Ballpit
                     count={50}
                     gravity={0.7}
                     friction={0.8}
                     wallBounce={0.9}
                     followCursor={true}
+                    size0={0.4} // Smaller cursor ball
                     colors={[
-                        0xffd700, // Yellow (Primary)
-                        0x00ffff, // Cyan (Secondary/Accent variant)
-                        0xff8c00, // Dark Orange (Accent)
+                        0xffff00, // Bright Vivid Yellow (Cursor Ball)
+                        0xd4af37, // Metallic Gold
+                        0xb8860b, // Dark Goldenrod
+                        0xffbf00, // Amber
                     ]}
                 />
-            </div>
+            </div> */}
 
             {/* Content Container */}
             <div className="relative z-10 container mx-auto px-4 py-20 min-h-screen flex flex-col justify-center items-center">
