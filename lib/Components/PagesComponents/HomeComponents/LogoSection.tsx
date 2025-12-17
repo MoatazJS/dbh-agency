@@ -21,7 +21,7 @@ export default function LogoSection() {
                     speed={100}
                     direction="left"
                     width="100%"
-                    logoHeight={80}
+                    logoHeight={150}
                     gap={60}
                     pauseOnHover={false}
                     className="opacity-50 hover:opacity-100 transition-opacity duration-300"
