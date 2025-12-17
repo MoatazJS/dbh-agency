@@ -241,6 +241,8 @@ export default function WorkSection() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-2xl mx-auto text-base md:text-lg lg:text-xl text-zinc-400 leading-relaxed px-4"
           >
