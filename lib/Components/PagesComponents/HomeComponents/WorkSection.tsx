@@ -237,8 +237,6 @@ export default function WorkSection() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="max-w-2xl mx-auto text-base md:text-lg lg:text-xl text-zinc-400 leading-relaxed px-4"
           >
@@ -389,7 +387,7 @@ export default function WorkSection() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12 md:mt-16">
+        <div className="text-center mt-12 md:mt-16 relative z-20">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
