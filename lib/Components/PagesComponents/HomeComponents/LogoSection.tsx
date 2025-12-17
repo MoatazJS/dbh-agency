@@ -11,16 +11,13 @@ export default function LogoSection() {
         { src: "/DbhLogo.png", alt: "DBH Logo" },
         { src: "/DbhLogo.png", alt: "DBH Logo" },
     ];
-
-    // Cast to any to bypass TypeScript prop validation for JS component
     const AnyLogoLoop = LogoLoop as any;
-
     return (
         <section className="py-2 bg-background overflow-hidden border-y border-white/5">
             <div className="w-full">
                 <AnyLogoLoop
                     logos={logos}
-                    speed={100}
+                    speed={50}
                     direction="left"
                     width="100%"
                     logoHeight={150}
