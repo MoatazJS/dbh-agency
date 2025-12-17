@@ -7,7 +7,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function HeroSection() {
   return (
     <>
-      <section className="relative min-h-screen overflow-hidden pt-20 pb-40">
+      <section className="relative min-h-screen overflow-hidden pt-20 pb-40 flex flex-col items-center justify-center">
         <div className="absolute inset-0 z-0 bg-slate-950">
           <Silk
             speed={15}
@@ -17,8 +17,8 @@ export default function HeroSection() {
             rotation={0}
           />
         </div>
-        <div className="relative z-10">
-          <div className="container px-4 text-center ">
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
