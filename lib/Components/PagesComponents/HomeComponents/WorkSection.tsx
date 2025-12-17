@@ -144,18 +144,18 @@ export default function WorkSection() {
               key={i}
               className="absolute w-1 h-1 bg-yellow-400/30 rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${(i * 37 + 13) % 100}%`,
+                top: `${(i * 53 + 29) % 100}%`,
               }}
               animate={{
                 y: [0, -100, 0],
-                x: [0, Math.random() * 50 - 25, 0],
+                x: [0, (i % 3 - 1) * 25, 0],
                 opacity: [0, 1, 0],
               }}
               transition={{
-                duration: 5 + Math.random() * 5,
+                duration: 5 + (i % 5),
                 repeat: Infinity,
-                delay: Math.random() * 5,
+                delay: i * 0.25,
               }}
             />
           ))}
@@ -331,17 +331,17 @@ export default function WorkSection() {
                             key={i}
                             className="absolute w-2 h-2 bg-yellow-400 rounded-full"
                             style={{
-                              left: `${Math.random() * 100}%`,
-                              top: `${Math.random() * 100}%`,
+                              left: `${(i * 41 + 17) % 100}%`,
+                              top: `${(i * 59 + 31) % 100}%`,
                             }}
                             animate={{
                               y: [0, -150],
                               opacity: [0, 1, 0],
                             }}
                             transition={{
-                              duration: 2 + Math.random() * 2,
+                              duration: 2 + (i % 3),
                               repeat: Infinity,
-                              delay: Math.random() * 2,
+                              delay: i * 0.25,
                             }}
                           />
                         ))}
