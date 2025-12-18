@@ -57,8 +57,7 @@ export default function StepsSection({ containerRef }: { containerRef: React.Ref
                         </motion.div>
                     ))}
                 </div>
-            </section>s
-
+            </section>
         </>
     )
 

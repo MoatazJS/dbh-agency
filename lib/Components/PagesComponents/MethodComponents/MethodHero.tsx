@@ -5,7 +5,7 @@ import React from "react";
 export default function MethodHero() {
     return (
         <>
-            <section className="relative min-h-screen flex flex-col justify-center items-center pt-32 pb-20 z-10 px-4">
+            <section className="relative min-h-[50vh] flex flex-col justify-center items-center py-32 z-10 ">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
