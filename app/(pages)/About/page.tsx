@@ -3,7 +3,8 @@ import AboutHero from "@/lib/Components/PagesComponents/AboutComponents/AboutHer
 import React from "react";
 
 export default function About() {
-    <>
-        <AboutHero />
-    </>
+    return (
+        <>
+            <AboutHero />
+        </>)
 }

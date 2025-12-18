@@ -8,7 +8,7 @@ export default function AboutHero() {
         <>
             <section className="relative h-screen flex items-center justify-center overflow-hidden">
                 <ParticlesBackground />
-                <div className="absolute inset-0 bg-black/20 z-0">
+                <div className="absolute inset-0 bg-black/20 z-0 flex flex-col items-center justify-center pt-24">
                     <div className="container px-4 relative z-10 text-center">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8, filter: "blur(20px)" }}
