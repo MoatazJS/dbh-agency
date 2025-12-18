@@ -31,7 +31,7 @@ export default function VisionPage() {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-tighter mix-blend-overlay opacity-50 leading-none font-artistic drop-shadow-[0_0_20px_rgba(0,0,0,0.9)]">
                             UNBOUND
                         </h1>
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[8rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary relative -mt-2 md:-mt-8 z-20 leading-none font-artistic drop-shadow-[0_0_30px_rgba(0,0,0,1)]">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[8rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 relative -mt-2 md:-mt-8 z-20 leading-none font-artistic drop-shadow-[0_0_30px_rgba(0,0,0,1)]">
                             VISION
                         </h1>
                     </motion.div>
