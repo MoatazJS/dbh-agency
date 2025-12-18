@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 const navLinks = [
-  { name: "About", href: "/about" },
-  { name: "Vision", href: "/vision" },
-  { name: "Method", href: "/method" },
-  { name: "Work", href: "/work" },
+  { name: "About", href: "/About" },
+  { name: "Vision", href: "/Vision" },
+  { name: "Method", href: "/Method" },
+  { name: "Work", href: "/Work" },
 ];
 
 export function Navbar() {
