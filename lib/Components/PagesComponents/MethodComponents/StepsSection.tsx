@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 import React from "react";
 
-export default function StepsSection({ containerRef }: { containerRef: React.RefObject<HTMLDivElement> }) {
+export default function StepsSection({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
     const steps = [
         { title: "DISCOVERY", desc: "We dig deep. We find the soul of your brand in the noise.", icon: "🔍" },
         { title: "STRATEGY", desc: "We build the map. No journey begins without a destination.", icon: "🗺️" },
