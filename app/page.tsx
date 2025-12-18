@@ -8,7 +8,6 @@ import ContactSection from "@/lib/Components/PagesComponents/HomeComponents/Cont
 export default function Home() {
   return (
     <>
-      <Navbar />
       <HomePage />
       <LogoSection />
       <AboutSection />
