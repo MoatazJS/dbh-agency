@@ -7,7 +7,7 @@ export default function StickyCard({ children, index, bgColor }: { children: Rea
     return (
         <motion.div
             className={cn(
-                "sticky top-32 p-10 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md min-h-[400px] flex items-center justify-center text-4xl md:text-6xl font-bold leading-tight font-artistic text-center",
+                "sticky top-24 md:top-32 p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md min-h-[300px] md:min-h-[400px] flex items-center justify-center text-2xl sm:text-4xl md:text-6xl font-bold leading-tight font-artistic text-center",
                 bgColor
             )}
             initial={{ opacity: 0, scale: 0.8, y: 100 }}
