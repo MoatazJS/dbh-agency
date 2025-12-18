@@ -1,6 +1,7 @@
 "use client"
 import { GridBackground } from "@/components/GridBackground";
 import MethodHero from "@/lib/Components/PagesComponents/MethodComponents/MethodHero";
+import StepsSection from "@/lib/Components/PagesComponents/MethodComponents/StepsSection";
 import React, { useRef } from "react";
 
 export default function MethodPage() {
@@ -14,7 +15,7 @@ export default function MethodPage() {
                     <GridBackground />
                 </div>
                 <MethodHero />
-                <StepsSection />
+                <StepsSection containerRef={containerRef} />
             </main>
         </>
     );
