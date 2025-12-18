@@ -5,7 +5,7 @@ import StickyCard from "../StickyCard";
 
 export default function AboutCards() {
     return (
-        <section className="py-20 relative bg-black/50 min-h-screen">
+        <section className="pt-20 relative bg-black/50 min-h-screen">
             <ParticlesBackground />
             <div className="container px-4 md:px-6 mx-auto">
                 <div className="max-w-4xl mx-auto space-y-[40vh] pb-[40vh]">
