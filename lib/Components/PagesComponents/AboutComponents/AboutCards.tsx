@@ -8,7 +8,7 @@ export default function AboutCards() {
         <section className="pt-20 relative bg-black/50 min-h-screen">
             <ParticlesBackground />
             <div className="container px-4 md:px-6 mx-auto">
-                <div className="max-w-4xl mx-auto space-y-[40vh] pb-[40vh]">
+                <div className="max-w-4xl mx-auto space-y-[20vh] pb-[20vh]">
                     <StickyCard index={0} bgColor="bg-zinc-900">
                         We believe in the power of <span className="text-primary">chaos</span> tailored into form.
                     </StickyCard>
