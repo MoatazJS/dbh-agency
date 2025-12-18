@@ -1,5 +1,5 @@
 "use client"
-import { motion, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function StepsSection() {
@@ -9,8 +9,8 @@ export default function StepsSection() {
         { title: "CREATION", desc: "We give it form. Chaos tailored into art.", icon: "🎨" },
         { title: "LAUNCH", desc: "We set it free. And watch the world unite.", icon: "🚀" },
     ];
-    const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
     const { scrollYProgress } = useScroll({ target: containerRef });
+    const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
     return (
         <>

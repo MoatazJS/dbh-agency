@@ -14,6 +14,7 @@ export default function MethodPage() {
                     <GridBackground />
                 </div>
                 <MethodHero />
+                <StepsSection />
             </main>
         </>
     );
