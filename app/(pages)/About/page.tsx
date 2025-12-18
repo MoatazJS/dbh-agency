@@ -1,6 +1,6 @@
 "use client"
-import AboutHero from "@/lib/Components/PagesComponents/AboutComponents/AboutHero";
 import React from "react";
+import AboutHero from "@/lib/Components/PagesComponents/AboutComponents/AboutHero";
 
 export default function About() {
     return (
