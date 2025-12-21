@@ -1,17 +1,46 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useState } from "react";
 // import Ballpit from "@/components/Ballpit";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { motion } from "framer-motion";
+import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { contactFormSchema, ContactFormData } from "@/lib/validations/contactSchema";
 
 const ContactSection = () => {
-    const formRef = useRef<HTMLFormElement>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission logic here
-        console.log("Form submitted");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema),
+        defaultValues: {
+            name: "",
+            email: "",
+            message: "",
+        },
+    });
+
+    const onSubmit = async (data: ContactFormData) => {
+        setIsSubmitting(true);
+        try {
+            // Simulate API call
+            console.log("Form submitted with data:", data);
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+            setIsSubmitted(true);
+            reset();
+            // Reset success message after 5 seconds
+            setTimeout(() => setIsSubmitted(false), 5000);
+        } catch (error) {
+            console.error("Submission error:", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -94,48 +123,77 @@ const ContactSection = () => {
                         className="glass p-8 rounded-2xl shadow-xl border border-white/10"
                     >
                         <h3 className="text-2xl font-bold mb-6 text-white">Send us a message</h3>
-                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                            <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    placeholder="Your Name"
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                                    required
-                                />
-                            </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    placeholder="your@email.com"
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                                    required
-                                />
-                            </div>
+                        <AnimatePresence mode="wait">
+                            {isSubmitted ? (
+                                <motion.div
+                                    key="success"
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    className="flex flex-col items-center justify-center py-12 text-center"
+                                >
+                                    <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-4">
+                                        <CheckCircle2 size={32} />
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-2">Message Sent!</h4>
+                                    <p className="text-gray-400">Thanks for reaching out. We'll get back to you soon.</p>
+                                </motion.div>
+                            ) : (
+                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                                    <div className="space-y-2">
+                                        <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
+                                        <input
+                                            {...register("name")}
+                                            type="text"
+                                            id="name"
+                                            placeholder="Your Name"
+                                            className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                                        />
+                                        {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name.message}</p>}
+                                    </div>
 
-                            <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
-                                <textarea
-                                    id="message"
-                                    rows={4}
-                                    placeholder="Tell us about your project..."
-                                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
-                                    required
-                                />
-                            </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
+                                        <input
+                                            {...register("email")}
+                                            type="email"
+                                            id="email"
+                                            placeholder="your@email.com"
+                                            className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
+                                        />
+                                        {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
+                                    </div>
 
-                            <button
-                                type="submit"
-                                className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center space-x-2 group"
-                            >
-                                <span>Send Message</span>
-                                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </form>
+                                    <div className="space-y-2">
+                                        <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
+                                        <textarea
+                                            {...register("message")}
+                                            id="message"
+                                            rows={4}
+                                            placeholder="Tell us about your project..."
+                                            className={`w-full bg-white/5 border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none`}
+                                        />
+                                        {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message.message}</p>}
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {isSubmitting ? (
+                                            <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
+                                        ) : (
+                                            <>
+                                                <span>Send Message</span>
+                                                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                            </>
+                                        )}
+                                    </button>
+                                </form>
+                            )}
+                        </AnimatePresence>
                     </motion.div>
                 </div>
             </div>
