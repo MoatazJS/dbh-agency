@@ -36,14 +36,14 @@ export default function Work() {
                                 transition={{ delay: 0.5 }}
                             >
                                 <span className="text-primary font-mono tracking-widest text-sm mb-4 block">FEATURED CASE</span>
-                                <h1 className="text-6xl md:text-8xl font-black mb-4 font-artistic leading-none">
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-secondary">SILENT</span> <br /> <span className="text-white">FORCE</span>
+                                <h1 className="text-6xl md:text-8xl font-black mb-4 font-artistic leading-none uppercase">
+                                    <span className="text-primary">Silent</span> <br /> <span className="text-white">Force</span>
                                 </h1>
                                 <p className="max-w-md text-zinc-300 mb-8">
                                     Rebranding a fintech giant into a sleek, silent powerhouse.
                                     We stripped away the noise and left only the signal.
                                 </p>
-                                <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-primary hover:scale-105 transition-all duration-300">
+                                <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black hover:scale-105 transition-all duration-300">
                                     VIEW CASE STUDY
                                 </button>
                             </motion.div>
@@ -54,10 +54,10 @@ export default function Work() {
 
                 <section className="relative py-20 container px-4 mx-auto z-10">
                     <div className="flex items-end justify-between mb-16">
-                        <h2 className="text-6xl font-black font-artistic">SELECTED <br /><span className="text-zinc-600">WORKS</span></h2>
+                        <h2 className="text-6xl font-black font-artistic uppercase">SELECTED <br /><span className="text-primary">WORKS</span></h2>
                         <div className="hidden md:block text-right">
-                            <p className="text-zinc-400">2023 - 2025</p>
-                            <p className="text-primary">ARCHIVE</p>
+                            <p className="text-zinc-400 font-mono">2023 - 2025</p>
+                            <p className="text-primary font-bold">ARCHIVE</p>
                         </div>
                     </div>
 
@@ -78,13 +78,13 @@ export default function Work() {
                                 <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500" />
 
                                 <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-white/20">
+                                    <span className="bg-primary/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-primary/30 text-primary">
                                         {project.category}
                                     </span>
                                 </div>
 
                                 <div className="absolute bottom-0 left-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-3xl font-black mb-2 font-artistic text-primary">{project.title}</h3>
+                                    <h3 className="text-3xl font-black mb-2 font-artistic text-primary uppercase">{project.title}</h3>
                                     <div className="h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-500" />
                                 </div>
                             </motion.div>
@@ -97,7 +97,7 @@ export default function Work() {
                         {[...Array(2)].map((_, i) => (
                             <div key={i} className="flex gap-20 items-center mx-10">
                                 {["NIKE", "SPOTIFY", "TESLA", "APPLE", "RED BULL", "SONY", "ADIDAS", "GOOGLE"].map((client) => (
-                                    <span key={client} className="text-4xl md:text-6xl font-black text-white/20 font-artistic hover:text-primary transition-colors cursor-default">
+                                    <span key={client} className="text-4xl md:text-6xl font-black text-primary/10 font-artistic hover:text-primary transition-colors cursor-default">
                                         {client}
                                     </span>
                                 ))}
@@ -105,8 +105,6 @@ export default function Work() {
                         ))}
                     </div>
                 </section>
-
-
             </main>
         </>
     )
