@@ -27,7 +27,7 @@ export default function VisionPage() {
                 <motion.div style={{ y: yHero, opacity: opacityHero }} className="text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        animate={isAnimating ? {} : { opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                     >
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[10rem] font-black tracking-tighter mix-blend-overlay opacity-50 leading-none font-artistic drop-shadow-[0_0_20px_rgba(0,0,0,0.9)]">
@@ -39,7 +39,7 @@ export default function VisionPage() {
                     </motion.div>
                     <motion.p
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        animate={isAnimating ? {} : { opacity: 1 }}
                         transition={{ delay: 0.8 }}
                         className="mt-8 text-xl text-zinc-300 animate-pulse"
                     >
