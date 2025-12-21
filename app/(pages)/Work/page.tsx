@@ -92,7 +92,19 @@ export default function Work() {
                     </div>
                 </section>
 
-
+                <section className="py-20 border-t border-white/10 relative z-10 bg-black overflow-hidden">
+                    <div className="flex whitespace-nowrap animate-marquee">
+                        {[...Array(2)].map((_, i) => (
+                            <div key={i} className="flex gap-20 items-center mx-10">
+                                {["NIKE", "SPOTIFY", "TESLA", "APPLE", "RED BULL", "SONY", "ADIDAS", "GOOGLE"].map((client) => (
+                                    <span key={client} className="text-4xl md:text-6xl font-black text-white/20 font-artistic hover:text-primary transition-colors cursor-default">
+                                        {client}
+                                    </span>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
 
             </main>
