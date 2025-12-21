@@ -1,9 +1,9 @@
 "use client";
 
+import { useAnimation } from "@/lib/Context/LoadingContext";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
 const variants = {
     hidden: { opacity: 0, x: 0, y: 0 },
     enter: { opacity: 1, x: 0, y: 0 },
@@ -16,14 +16,14 @@ const pathVariants = {
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
-    const [isAnimating, setIsAnimating] = useState(true);
-
+    const { isAnimating, setIsAnimating } = useAnimation();
     // Reset animation state on path change
     useEffect(() => {
         setIsAnimating(true);
         const timer = setTimeout(() => setIsAnimating(false), 2000); // Wait for animation
+
         return () => clearTimeout(timer);
-    }, [pathname]);
+    }, [pathname, setIsAnimating]);
 
     return (
         <>

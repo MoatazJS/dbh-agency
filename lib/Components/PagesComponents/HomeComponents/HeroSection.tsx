@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import React from "react";
 import Silk from "@/components/Silk";
 import { TypeAnimation } from "react-type-animation";
+import { useAnimation } from "@/lib/Context/LoadingContext";
+
 export default function HeroSection() {
+  const { isAnimating } = useAnimation();
   return (
     <>
       <section className="relative min-h-screen overflow-hidden pt-20 pb-40 flex flex-col items-center justify-center">
@@ -21,7 +24,7 @@ export default function HeroSection() {
           <div className="container mx-auto px-4 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isAnimating ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-sm font-medium tracking-wide text-yellow-500 mb-6 backdrop-blur-md">
@@ -31,7 +34,7 @@ export default function HeroSection() {
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isAnimating ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-8 leading-[0.9] font-artistic"
             >
@@ -50,7 +53,7 @@ export default function HeroSection() {
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isAnimating ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="
     max-w-2xl mx-auto mb-10 px-6 py-4
@@ -68,7 +71,7 @@ export default function HeroSection() {
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isAnimating ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
