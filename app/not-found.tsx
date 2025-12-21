@@ -17,7 +17,7 @@ export default function NotFound() {
                     <rect width="100%" height="100%" filter="url(#noiseFilter)" />
                 </svg>
             </div>
-            <div className="relative z-10 text-center px-4">
+            <div className="relative z-10 text-center px-4 py-24">
                 <h1 className="text-[10rem] md:text-[20rem] font-black leading-none tracking-tighter text-white mix-blend-difference font-artistic animate-pulse">
                     404
                 </h1>
