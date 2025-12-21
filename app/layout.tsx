@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/lib/Components/LayoutComponents/Navbar";
-import { LoadingProvider } from "@/lib/Context/LoadingContext";
-
+import { AnimationProvider } from "@/lib/Context/LoadingContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,9 +37,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} antialiased`}
       >
         <Navbar />
-        <LoadingProvider>
+        <AnimationProvider>
           {children}
-        </LoadingProvider>
+        </AnimationProvider>
       </body>
     </html>
   );

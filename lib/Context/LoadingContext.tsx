@@ -1,19 +1,28 @@
-"use client"
+"use client";
+
 import { createContext, useContext, useState } from "react";
 
-const LoadingContext = createContext({
-    isLoading: true,
-    setIsLoading: (_: boolean) => { },
-});
-
-export const LoadingProvider = ({ children }) => {
-    const [isLoading, setIsLoading] = useState(true);
-
-    return (
-        <LoadingContext.Provider value={{ isLoading, setIsLoading }}>
-            {children}
-        </LoadingContext.Provider>
-    );
+type AnimationContextType = {
+    isAnimating: boolean;
+    setIsAnimating: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const useLoading = () => useContext(LoadingContext);
+const AnimationContext = createContext<AnimationContextType | null>(null);
+
+export function AnimationProvider({ children }: { children: React.ReactNode }) {
+    const [isAnimating, setIsAnimating] = useState(true);
+
+    return (
+        <AnimationContext.Provider value={{ isAnimating, setIsAnimating }}>
+            {children}
+        </AnimationContext.Provider>
+    );
+}
+
+export function useAnimation() {
+    const context = useContext(AnimationContext);
+    if (!context) {
+        throw new Error("useAnimation must be used within AnimationProvider");
+    }
+    return context;
+}
