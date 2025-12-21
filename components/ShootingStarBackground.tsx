@@ -45,24 +45,34 @@ export const ShootingStarsBackground = ({ className }: { className?: string }) =
 
                 if (this.x < -100 || this.y < -100) {
                     this.x = canvas!.width + Math.random() * 200;
-                    this.y = Math.random() * canvas!.height + 200; // Allow spawning below to move up-left
+                    this.y = Math.random() * canvas!.height + 200;
                 }
             }
 
             draw() {
                 if (!ctx) return;
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.lineWidth = 1;
+                // Brand Yellow: oklch(0.85 0.18 95) is roughly #facc15
+                ctx.strokeStyle = `rgba(250, 204, 21, ${this.opacity})`;
+                ctx.lineWidth = 2;
+                ctx.lineCap = "round";
+
+                // Add glow
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = "rgba(250, 204, 21, 0.8)";
+
                 ctx.moveTo(this.x, this.y);
                 ctx.lineTo(this.x + this.length, this.y + this.length * 0.5);
                 ctx.stroke();
+
+                // Reset shadow for subsequent draws
+                ctx.shadowBlur = 0;
             }
         }
 
         const init = () => {
             stars = [];
-            const numberOfStars = 50;
+            const numberOfStars = 40; // Slightly fewer for better focus on yellow glow
             for (let i = 0; i < numberOfStars; i++) {
                 stars.push(new Star());
             }
@@ -72,8 +82,13 @@ export const ShootingStarsBackground = ({ className }: { className?: string }) =
             if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Standard static stars background
-            ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            // Draw small background stars (static-ish) in yellow
+            ctx.fillStyle = "rgba(250, 204, 21, 0.3)";
+            for (let i = 0; i < 100; i++) {
+                const x = (Math.sin(i) * 0.5 + 0.5) * canvas.width;
+                const y = (Math.cos(i) * 0.5 + 0.5) * canvas.height;
+                ctx.fillRect(x, y, 1, 1);
+            }
 
             stars.forEach((star) => {
                 star.update();
@@ -93,9 +108,9 @@ export const ShootingStarsBackground = ({ className }: { className?: string }) =
     }, []);
 
     return (
-        <div className={cn("absolute inset-0 overflow-hidden pointer-events-none z-0 bg-black", className)}>
-            {/* Gradient overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
+        <div className={cn("absolute inset-0 overflow-hidden pointer-events-none z-0 bg-background", className)}>
+            {/* Gradient overlay for depth using brand colors */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10 opacity-80" />
             <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
         </div>
     );

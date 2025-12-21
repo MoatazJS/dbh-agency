@@ -17,7 +17,14 @@ export default function Work() {
     ];
     return (
         <div>
-            <h1>Work</h1>
+            <>
+                <main ref={containerRef} className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white overflow-x-hidden"><div className="fixed inset-0 z-0">
+                    <ShootingStarsBackground />
+                </div></main>
+
+
+
+            </>
         </div>
     )
 }
