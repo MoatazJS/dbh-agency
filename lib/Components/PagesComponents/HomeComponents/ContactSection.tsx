@@ -6,10 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, ContactFormData } from "@/lib/validations/contactSchema";
+import { submitContactForm } from "@/lib/Services/ApiServices";
 
 const ContactSection = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
     const {
         register,
@@ -27,16 +29,17 @@ const ContactSection = () => {
 
     const onSubmit = async (data: ContactFormData) => {
         setIsSubmitting(true);
+        setSubmitError(null);
         try {
-            // Simulate API call
-            console.log("Form submitted with data:", data);
-            await new Promise((resolve) => setTimeout(resolve, 1500));
+            console.log("Submitting form with data:", data);
+            await submitContactForm(data);
             setIsSubmitted(true);
             reset();
             // Reset success message after 5 seconds
             setTimeout(() => setIsSubmitted(false), 5000);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Submission error:", error);
+            setSubmitError(error.response?.data?.error || "Failed to send message. Please try again later.");
         } finally {
             setIsSubmitting(false);
         }
@@ -158,6 +161,12 @@ const ContactSection = () => {
                                         />
                                         {errors.message && <p className="text-xs text-red-500 mt-1">{errors.message.message}</p>}
                                     </div>
+
+                                    {submitError && (
+                                        <p className="text-sm text-red-500 bg-red-500/10 p-3 rounded-lg text-center animate-shake">
+                                            {submitError}
+                                        </p>
+                                    )}
 
                                     <button
                                         type="submit"
