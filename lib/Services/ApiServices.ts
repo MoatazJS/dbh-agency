@@ -4,7 +4,7 @@ const apiClient = axios.create({
     baseURL: 'https://dbh-agency.com/api',
     headers: {
         'Content-Type': 'application/json',
-        API_KEY: "884e21c7e6a9fe23a9f0b2dfe63d96ddb3f390402012d72785422808deebd3be"
+        'X-API-KEY': "884e21c7e6a9fe23a9f0b2dfe63d96ddb3f390402012d72785422808deebd3be"
     },
 });
 
