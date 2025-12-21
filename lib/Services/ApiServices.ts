@@ -2,10 +2,10 @@ import axios from 'axios';
 import { ContactFormData } from '../validations/contactSchema';
 
 const apiClient = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://dbh-agency.com/api',
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
     headers: {
         'Content-Type': 'application/json',
-        'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY || "884e21c7e6a9fe23a9f0b2dfe63d96ddb3f390402012d72785422808deebd3be"
+        'X-API-KEY': process.env.NEXT_PUBLIC_API_KEY,
     },
 });
 
