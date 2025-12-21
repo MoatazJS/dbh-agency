@@ -6,8 +6,10 @@ import { useRef } from "react";
 import { LiquidBackground } from "@/components/ui/LuquidBackground";
 import LogoSection from "@/lib/Components/PagesComponents/HomeComponents/LogoSection";
 import Link from "next/link";
+import { useAnimation } from "@/lib/Context/LoadingContext";
 
 export default function VisionPage() {
+    const { isAnimating } = useAnimation();
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: containerRef });
 

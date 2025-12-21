@@ -1,14 +1,16 @@
 "use client"
 import { motion } from "framer-motion";
 import React from "react";
+import { useAnimation } from "@/lib/Context/LoadingContext";
 
 export default function MethodHero() {
+    const { isAnimating } = useAnimation();
     return (
         <>
             <section className="relative min-h-[50vh] flex flex-col justify-center items-center py-32 z-10 ">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={isAnimating ? {} : { opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
                     className="text-center"
                 >
