@@ -43,7 +43,7 @@ export default function Work() {
                                     Rebranding a fintech giant into a sleek, silent powerhouse.
                                     We stripped away the noise and left only the signal.
                                 </p>
-                                <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black hover:scale-105 transition-all duration-300">
+                                <button className="bg-primary cursor-pointer text-primary-foreground px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black hover:scale-105 transition-all duration-300">
                                     VIEW CASE STUDY
                                 </button>
                             </motion.div>
