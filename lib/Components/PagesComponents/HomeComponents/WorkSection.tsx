@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Shuffle from "@/components/Shuffle";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface WorkItem {
   id: number;
@@ -373,26 +374,28 @@ export default function WorkSection() {
 
         {/* View All Button */}
         <div className="text-center mt-12 md:mt-24 relative z-20">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(250,204,21,0.5)] cursor-pointer text-sm md:text-base"
-          >
-            <span className="relative z-10">View All Projects</span>
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="relative z-10"
+          <Link href="/work">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(250,204,21,0.5)] cursor-pointer text-sm md:text-base"
             >
-              <ArrowUpRight className="w-5 h-5" />
-            </motion.div>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.5 }}
-            />
-          </motion.button>
+              <span className="relative z-10">View All Projects</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="relative z-10"
+              >
+                <ArrowUpRight className="w-5 h-5" />
+              </motion.div>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.5 }}
+              />
+            </motion.button>
+          </Link>
         </div>
       </div>
 
