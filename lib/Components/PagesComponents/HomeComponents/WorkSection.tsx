@@ -88,7 +88,7 @@ export default function WorkSection() {
   };
 
   return (
-    <section className="relative min-h-screen py-12 md:py-20 overflow-hidden">
+    <section id="work" className="relative min-h-screen py-12 md:py-20 overflow-hidden">
       {/* Animated Background - Gradient Mesh */}
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-slate-950 via-blue-950/50 to-slate-950">
         {/* Animated gradient blobs */}

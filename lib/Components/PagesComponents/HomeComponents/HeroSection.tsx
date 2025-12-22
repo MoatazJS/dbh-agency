@@ -8,6 +8,13 @@ import { useAnimation } from "@/lib/Context/LoadingContext";
 
 export default function HeroSection() {
   const { isAnimating } = useAnimation();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <>
       <section className="relative min-h-screen overflow-hidden pt-20 pb-40 flex flex-col items-center justify-center">
@@ -75,13 +82,18 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button size="lg" className="w-full sm:w-auto text-lg">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto text-lg cursor-pointer"
+                onClick={() => scrollToSection("work")}
+              >
                 See Our Work
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="w-full sm:w-auto text-lg"
+                className="w-full sm:w-auto text-lg cursor-pointer"
+                onClick={() => scrollToSection("contact")}
               >
                 Contact Us
               </Button>
