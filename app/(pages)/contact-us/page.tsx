@@ -17,8 +17,8 @@ export default function Contact() {
                         transition={{ duration: 1 }}
                         className="max-w-4xl mx-auto"
                     >
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-black mb-8 tracking-tighter text-white mix-blend-mode-difference font-artistic">
-                            THE UNKNOWN <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-primary to-secondary">AWAITS</span>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-black mb-8 tracking-tighter text-primary mix-blend-mode-difference font-artistic">
+                            THE UNKNOWN <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-primary to-secondary">AWAITS</span>
                         </h1>
 
                         <form className="max-w-md mx-auto space-y-4 text-left bg-black/40 p-8 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
@@ -42,7 +42,5 @@ export default function Contact() {
                     </motion.div>
                 </div>
             </section></main>
-
-
     </>)
 }
