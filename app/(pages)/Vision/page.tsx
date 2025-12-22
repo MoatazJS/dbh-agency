@@ -8,7 +8,7 @@ import LogoSection from "@/lib/Components/PagesComponents/HomeComponents/LogoSec
 import Link from "next/link";
 import { useAnimation } from "@/lib/Context/LoadingContext";
 
-export default function VisionPage() {
+export default function Vision() {
     const { isAnimating } = useAnimation();
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: containerRef });

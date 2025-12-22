@@ -4,7 +4,7 @@ import MethodHero from "@/lib/Components/PagesComponents/MethodComponents/Method
 import StepsSection from "@/lib/Components/PagesComponents/MethodComponents/StepsSection";
 import React, { useRef } from "react";
 
-export default function MethodPage() {
+export default function Method() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
