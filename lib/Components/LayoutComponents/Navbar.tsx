@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 const navLinks = [
-  { name: "About", href: "/About" },
-  { name: "Vision", href: "/Vision" },
-  { name: "Method", href: "/Method" },
-  { name: "Work", href: "/Work" },
+  { name: "About", href: "/about" },
+  { name: "Vision", href: "/vision" },
+  { name: "Method", href: "/method" },
+  { name: "Work", href: "/work" },
 ];
 
 export function Navbar() {
@@ -63,7 +63,7 @@ export function Navbar() {
             <Button
               variant="primary"
               size="sm"
-              onClick={() => (window.location.href = "/contact")}
+              onClick={() => (window.location.href = "/contact-us")}
             >
               Get Started
             </Button>
@@ -101,7 +101,7 @@ export function Navbar() {
             className="w-40"
             onClick={() => {
               setIsMobileMenuOpen(false);
-              window.location.href = "/contact";
+              window.location.href = "/contact-us";
             }}
           >
             Get Started
