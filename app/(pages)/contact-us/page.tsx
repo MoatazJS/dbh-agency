@@ -2,18 +2,20 @@
 import { Button } from "@/components/ui/button";
 import { VortexBackground } from "@/components/VortexBackground";
 import { motion } from "framer-motion";
+import { useAnimation } from "@/lib/Context/LoadingContext";
 
 export default function Contact() {
+    const { isAnimating } = useAnimation();
     return (<>
 
-        <main className="min-h-screen bg-black text-white selection:bg-red-500 selection:text-black overflow-hidden relative flex flex-col">
+        <main className="min-h-screen bg-black text-white selection:bg-red-500 selection:text-black overflow-hidden relative flex flex-col pb-14">
             <VortexBackground />
             <section className="flex-1 flex items-center justify-center relative z-10 pt-20">
 
                 <div className="container px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        animate={isAnimating ? {} : { opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                         className="max-w-4xl mx-auto"
                     >
