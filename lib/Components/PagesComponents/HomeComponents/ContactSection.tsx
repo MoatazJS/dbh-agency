@@ -171,7 +171,7 @@ const ContactSection = () => {
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full bg-primary text-primary-foreground font-bold py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full bg-primary cursor-pointer text-primary-foreground font-bold py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                                     >
                                         {isSubmitting ? (
                                             <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
