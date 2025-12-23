@@ -43,7 +43,7 @@ export default function Footer() {
                         <Link
                             key={social.name}
                             href={social.href}
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 transform hover:scale-110"
+                            className="text-primary hover:text-white transition-all duration-300 transform hover:scale-110"
                             aria-label={social.name}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -55,13 +55,13 @@ export default function Footer() {
 
                 {/* Brand Text & Year */}
                 <div className="text-center space-y-4">
-                    <p className="text-muted-foreground text-sm font-medium tracking-wide">
+                    <p className="text-primary text-sm font-medium tracking-wide">
                         &copy; {currentYear} DBH Agency. All rights reserved.
                     </p>
 
                     <Link
                         href="/privacy-policy"
-                        className="inline-block text-xs uppercase tracking-[0.2em] text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+                        className="inline-block text-xs uppercase tracking-[0.2em] text-primary/80 hover:text-white transition-colors duration-300"
                     >
                         Privacy Policy
                     </Link>
