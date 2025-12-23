@@ -9,6 +9,9 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 
+import { faBehance } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // Custom TikTok Icon since it's not in the default Lucide library
 const TikTokIcon = ({ className }: { className?: string }) => (
     <svg
@@ -28,6 +31,11 @@ const socialLinks = [
     { name: "Facebook", href: "#", icon: Facebook },
     { name: "YouTube", href: "#", icon: Youtube },
     { name: "LinkedIn", href: "#", icon: Linkedin },
+    {
+        name: "Behance",
+        href: "#",
+        icon: (props: any) => <FontAwesomeIcon icon={faBehance} {...props} />,
+    },
 ];
 
 export default function Footer() {
