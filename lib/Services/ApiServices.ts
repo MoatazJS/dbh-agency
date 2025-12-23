@@ -22,11 +22,15 @@ export const fetchProjects = async () => {
 
 export const submitContactForm = async (data: ContactFormData) => {
     try {
-        const response = await apiClient.post('/contact', data);
-        console.log('Contact Submission Response:', response.data);
+        const response = await axios.post('https://formspree.io/f/mojaykdb', data, {
+            headers: {
+                'Accept': 'application/json',
+            }
+        });
+        console.log('Formspree Submission Response:', response.data);
         return response.data;
-    } catch (error) {
-        console.error('Error submitting contact form:', error);
+    } catch (error: any) {
+        console.error('Error submitting to Formspree:', error);
         throw error;
     }
 };

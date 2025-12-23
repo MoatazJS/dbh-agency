@@ -80,7 +80,12 @@ export default function Contact() {
                                         <p className="text-gray-400">Thanks for reaching out. We've received your vision and will respond shortly.</p>
                                     </motion.div>
                                 ) : (
-                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-left bg-black/40 p-8 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+                                    <form
+                                        onSubmit={handleSubmit(onSubmit)}
+                                        className="space-y-4 text-left bg-black/40 p-8 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl"
+                                        action="https://formspree.io/f/mojaykdb"
+                                        method="POST"
+                                    >
                                         <div>
                                             <label htmlFor="name" className="text-sm font-medium text-zinc-400 ml-1">Name</label>
                                             <input

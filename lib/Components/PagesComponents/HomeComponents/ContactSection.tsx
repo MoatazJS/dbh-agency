@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, ContactFormData } from "@/lib/validations/contactSchema";
 import { submitContactForm } from "@/lib/Services/ApiServices";
+import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,7 +32,6 @@ const ContactSection = () => {
         setIsSubmitting(true);
         setSubmitError(null);
         try {
-            console.log("Submitting form with data:", data);
             await submitContactForm(data);
             setIsSubmitted(true);
             reset();
@@ -125,13 +125,19 @@ const ContactSection = () => {
                                     <p className="text-gray-400">Thanks for reaching out. We'll get back to you soon.</p>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                                <form
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    className="space-y-6"
+                                    action="https://formspree.io/f/mojaykdb"
+                                    method="POST"
+                                >
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
                                         <input
                                             {...register("name")}
                                             type="text"
                                             id="name"
+                                            name="name"
                                             placeholder="Your Name"
                                             className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
                                         />
@@ -144,6 +150,7 @@ const ContactSection = () => {
                                             {...register("email")}
                                             type="email"
                                             id="email"
+                                            name="email"
                                             placeholder="your@email.com"
                                             className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all`}
                                         />
@@ -155,6 +162,7 @@ const ContactSection = () => {
                                         <textarea
                                             {...register("message")}
                                             id="message"
+                                            name="message"
                                             rows={4}
                                             placeholder="Tell us about your project..."
                                             className={`w-full bg-white/5 border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none`}
@@ -168,7 +176,7 @@ const ContactSection = () => {
                                         </p>
                                     )}
 
-                                    <button
+                                    <Button
                                         type="submit"
                                         disabled={isSubmitting}
                                         className="w-full bg-primary cursor-pointer text-primary-foreground font-bold py-4 rounded-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
@@ -181,7 +189,7 @@ const ContactSection = () => {
                                                 <Send size={18} className="group-hover:translate-x-1 transition-transform" />
                                             </>
                                         )}
-                                    </button>
+                                    </Button>
                                 </form>
                             )}
                         </AnimatePresence>
