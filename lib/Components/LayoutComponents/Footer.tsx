@@ -33,7 +33,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full bg-background border-t border-white/10 py-16 px-6">
+        <footer className="w-full bg-background border-t border-white/10 py-16 px-6 relative z-50">
             <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
                 {/* Logo */}
                 <Link href="/" className="relative group">
