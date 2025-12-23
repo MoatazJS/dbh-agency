@@ -11,6 +11,7 @@ interface DetailsChallengeProps {
     imageSrc?: string;
 }
 
+
 export default function DetailsChallenge({
     title = "THE CHALLENGE",
     description = "Every masterpiece begins with a problem to solve. Our challenge was to re-imagine the brand identity in a way that resonates with a modern, digital-first audience while preserving the core heritage. We needed to bridge the gap between tradition and innovation, creating a visual language that speaks volume without saying a word.",
@@ -30,14 +31,14 @@ export default function DetailsChallenge({
                         className="space-y-8"
                     >
                         <div className="relative">
-                            <h2 className="text-4xl md:text-6xl font-black text-white font-artistic tracking-tighter">
+                            <h2 className="text-4xl md:text-6xl font-black font-artistic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-primary drop-shadow-[0_0_15px_rgba(250,204,21,0.3)]">
                                 {title}
-                                <span className="text-primary text-6xl">.</span>
+                                <span className="text-white">.</span>
                             </h2>
-                            <div className="w-20 h-1 bg-primary mt-4 rounded-full" />
+                            <div className="w-20 h-1 bg-gradient-to-r from-primary to-transparent mt-4 rounded-full" />
                         </div>
 
-                        <div className="text-lg md:text-xl text-zinc-400 leading-relaxed space-y-6">
+                        <div className="text-lg md:text-xl text-zinc-300 leading-relaxed space-y-6">
                             <p>
                                 {description}
                             </p>
@@ -45,8 +46,8 @@ export default function DetailsChallenge({
                         </div>
 
                         {/* Decorative Quote or Highlight */}
-                        <div className="border-l-2 border-white/20 pl-6 py-2">
-                            <p className="text-white/80 italic font-serif text-xl">
+                        <div className="border-l-4 border-primary pl-6 py-2">
+                            <p className="italic font-serif text-xl text-primary font-medium tracking-wide">
                                 "The obstacle is the way."
                             </p>
                         </div>
@@ -71,7 +72,7 @@ export default function DetailsChallenge({
                             />
 
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
 
                             {/* Floating decorative element */}
                             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 blur-[50px] rounded-full z-10" />
