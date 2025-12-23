@@ -27,10 +27,8 @@ export const submitContactForm = async (data: ContactFormData) => {
                 'Accept': 'application/json',
             }
         });
-        console.log('Formspree Submission Response:', response.data);
         return response.data;
     } catch (error: any) {
-        console.error('Error submitting to Formspree:', error);
         throw error;
     }
 };
