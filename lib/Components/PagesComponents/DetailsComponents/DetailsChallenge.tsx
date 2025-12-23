@@ -35,7 +35,7 @@ export default function DetailsChallenge({
                                 {title}
                                 <span className="text-white">.</span>
                             </h2>
-                            <div className="w-20 h-1 bg-gradient-to-r from-primary to-transparent mt-4 rounded-full" />
+                            <div className="w-full h-1 bg-gradient-to-r from-primary to-transparent mt-4 rounded-full" />
                         </div>
 
                         <div className="text-lg md:text-xl text-zinc-300 leading-relaxed space-y-6">
