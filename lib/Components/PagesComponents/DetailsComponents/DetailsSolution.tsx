@@ -16,7 +16,7 @@ export default function DetailsSolution({
     imageSrc = "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop" // Placeholder
 }: DetailsSolutionProps) {
     return (
-        <section className="w-full py-20 px-6 bg-black relative overflow-hidden">
+        <section className="w-full py-20 px-6 bg-seconday relative overflow-hidden">
             <div className="container mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
