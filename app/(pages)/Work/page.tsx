@@ -127,6 +127,9 @@ export default function Work() {
                                             </div>
                                         )}
 
+                                        {/* Subtle Dark Overlay */}
+                                        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
 
                                         {/* Restored Category Tag Visual */}
@@ -137,8 +140,8 @@ export default function Work() {
                                         </div>
 
                                         <div className="absolute bottom-0 left-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            <h3 className="text-3xl font-black mb-2 font-artistic text-white group-hover:text-primary transition-colors uppercase">{project.title}</h3>
-                                            <p className="text-zinc-400 text-sm line-clamp-2 mb-2 group-hover:text-white transition-colors">{project.description}</p>
+                                            <h3 className="text-3xl font-black mb-2 font-artistic text-white group-hover:text-primary transition-colors uppercase drop-shadow-lg">{project.title}</h3>
+                                            <p className="text-zinc-400 text-sm line-clamp-2 mb-2 group-hover:text-white transition-colors drop-shadow-lg">{project.description}</p>
                                             <div className="h-0.5 w-10 group-hover:w-full bg-primary transition-all duration-500" />
                                         </div>
                                     </div>
