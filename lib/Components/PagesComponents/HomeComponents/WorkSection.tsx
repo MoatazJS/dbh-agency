@@ -258,7 +258,7 @@ export default function WorkSection() {
               >
                 {/* Card Container - Reduced height */}
                 <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4">
-                  <Link href={`/project-details/${workItems[currentIndex].id}`} className="block w-full h-full">
+                  <Link href={`/project-details/${workItems[currentIndex].id}`} className="block w-full h-full flex items-center justify-center">
                     <div
                       className="relative w-full h-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] max-h-[350px] sm:max-h-[400px] md:max-h-[450px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
                     >
