@@ -1,24 +1,34 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ShootingStarsBackground } from "@/components/ShootingStarBackground";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { fetchAllProjects } from "@/lib/Services/ApiServices";
+import { WorkProject } from "@/lib/interfaces/interface";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Work() {
-    useEffect(() => {
-        fetchAllProjects();
-    }, []);
+    const [projects, setProjects] = useState<WorkProject[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: containerRef });
     const yHero = useTransform(scrollYProgress, [0, 1], [0, 200]);
-    const projects = [
-        { id: 1, title: "NEON HORIZON", category: "BRANDING", image: "/project1.jpg", size: "col-span-1 md:col-span-2 row-span-2" },
-        { id: 2, title: "VELOCITY", category: "WEB DESIGN", image: "/project2.jpg", size: "col-span-1" },
-        { id: 3, title: "ECHO CHAMBER", category: "CAMPAIGN", image: "/project3.jpg", size: "col-span-1" },
-        { id: 4, title: "VOID", category: "MOTION", image: "/project4.jpg", size: "col-span-1 md:col-span-2" },
-    ];
+
+    useEffect(() => {
+        const loadProjects = async () => {
+            try {
+                const data = await fetchAllProjects();
+                if (Array.isArray(data)) {
+                    setProjects(data);
+                }
+            } catch (error) {
+                console.error("Failed to load work projects:", error);
+            }
+        };
+        loadProjects();
+    }, []);
+
     return (
         <>
             <main ref={containerRef} className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white overflow-x-hidden">
@@ -66,33 +76,61 @@ export default function Work() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[300px]">
-                        {projects.map((project, i) => (
-                            <motion.div
-                                key={project.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ margin: "-10%" }}
-                                transition={{ delay: i * 0.1 }}
-                                className={cn(
-                                    "relative group rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 cursor-pointer",
-                                    project.size
-                                )}
-                            >
-                                <div className="absolute inset-0 bg-zinc-800 transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-colors duration-500" />
+                        {projects.map((project, i) => {
+                            // Bento Grid Pattern: [Large, Small, Small, Wide]
+                            // 0: Large (2x2)
+                            // 1: Small (1x1)
+                            // 2: Small (1x1)
+                            // 3: Wide (2x1)
+                            const patternIndex = i % 4;
+                            let sizeClass = "col-span-1";
+                            if (patternIndex === 0) sizeClass = "col-span-1 md:col-span-2 row-span-2";
+                            else if (patternIndex === 3) sizeClass = "col-span-1 md:col-span-2";
 
-                                <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="bg-primary/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-primary/30 text-primary">
-                                        {project.category}
-                                    </span>
-                                </div>
+                            return (
+                                <motion.div
+                                    key={project.id}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ margin: "-10%" }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className={cn(
+                                        "relative group rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 cursor-default", // Removed cursor-pointer
+                                        sizeClass
+                                    )}
+                                >
+                                    <div className="w-full h-full relative">
+                                        {project.image ? (
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+                                            />
+                                        ) : (
+                                            <div className="absolute inset-0 bg-zinc-800 flex items-center justify-center text-zinc-600 font-mono">
+                                                NO IMAGE
+                                            </div>
+                                        )}
 
-                                <div className="absolute bottom-0 left-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-3xl font-black mb-2 font-artistic text-primary uppercase">{project.title}</h3>
-                                    <div className="h-0.5 w-0 group-hover:w-full bg-primary transition-all duration-500" />
-                                </div>
-                            </motion.div>
-                        ))}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
+
+                                        {/* Restored Category Tag Visual */}
+                                        <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <span className="bg-primary/20 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold border border-primary/30 text-primary">
+                                                WORK
+                                            </span>
+                                        </div>
+
+                                        <div className="absolute bottom-0 left-0 p-8 z-20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <h3 className="text-3xl font-black mb-2 font-artistic text-white group-hover:text-primary transition-colors uppercase">{project.title}</h3>
+                                            <p className="text-zinc-400 text-sm line-clamp-2 mb-2 group-hover:text-white transition-colors">{project.description}</p>
+                                            <div className="h-0.5 w-10 group-hover:w-full bg-primary transition-all duration-500" />
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </section>
 
