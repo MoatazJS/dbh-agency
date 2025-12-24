@@ -90,12 +90,17 @@ const ContactSection = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-muted-foreground">Visit Us</p>
-                                    <p className="text-lg font-semibold">
+                                    <a
+                                        href="https://maps.app.goo.gl/MNJC1cUbTU5snF6L6"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-lg font-semibold hover:text-primary transition-colors block"
+                                    >
                                         633 Abu Qir Street, Gianaclis<br />
                                         In Front of Mostafa El Sallab<br />
                                         Alexandria, Egypt<br />
                                         Apartment 1, 5th Floor, Entrance 1
-                                    </p>
+                                    </a>
                                 </div>
                             </div>
                         </div>

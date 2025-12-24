@@ -98,12 +98,17 @@ export default function Contact() {
                                         </div>
                                         <div className="pt-2">
                                             <h3 className="text-xl font-bold text-white mb-2">Visit Us</h3>
-                                            <p className="text-zinc-400 text-lg">
+                                            <a
+                                                href="https://maps.app.goo.gl/MNJC1cUbTU5snF6L6"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-zinc-400 text-lg hover:text-primary transition-colors block"
+                                            >
                                                 633 Abu Qir Street, Gianaclis<br />
                                                 In Front of Mostafa El Sallab<br />
                                                 Alexandria, Egypt<br />
                                                 Apartment 1, 5th Floor, Entrance 1
-                                            </p>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
