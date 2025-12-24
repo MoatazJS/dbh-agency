@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 
-export default function DetailsVideo() {
+export default function DetailsVideos() {
     return (<>
-        <h1>HI DETAILS Videos</h1>
+
+
     </>)
 }
