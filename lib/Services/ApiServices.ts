@@ -11,7 +11,6 @@ const apiClient = axios.create({
 export const fetchHomeProjects = async () => {
     try {
         const response = await apiClient.get('/home');
-        console.log('Projects Response:', response.data);
         return response.data;
     } catch (error) {
         console.error('Error fetching projects:', error);
@@ -22,7 +21,6 @@ export const fetchHomeProjects = async () => {
 export const fetchProjectWithId = async (id: number) => {
     try {
         const response = await apiClient.get(`/projects/${id}`);
-        console.log('Projects Response:', response.data);
         return response.data;
     } catch (error) {
         console.error('Error fetching projects:', error);
@@ -33,7 +31,6 @@ export const fetchProjectWithId = async (id: number) => {
 export const fetchAllProjects = async () => {
     try {
         const response = await apiClient.get(`/work`);
-        console.log('Projects Response:', response.data);
         return response.data;
     } catch (error) {
         console.error('Error fetching projects:', error);

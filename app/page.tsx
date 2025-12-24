@@ -4,6 +4,7 @@ import WorkSection from "@/lib/Components/PagesComponents/HomeComponents/WorkSec
 import LogoSection from "@/lib/Components/PagesComponents/HomeComponents/LogoSection";
 import ContactSection from "@/lib/Components/PagesComponents/HomeComponents/ContactSection";
 import HomePage from "./(pages)/home/page";
+import BrandsSection from "@/lib/Components/PagesComponents/HomeComponents/BrandsSection";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <HomePage />
       <LogoSection />
       <AboutSection />
-      <LogoSection />
+      <BrandsSection />
       <WorkSection />
       <LogoSection />
       <ContactSection />

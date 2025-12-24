@@ -81,3 +81,11 @@ export interface WorkProject {
     image: string | null;
 }
 export type WorkProjectsResponse = WorkProject[];
+
+// Brands 
+export interface Client {
+    id: number;
+    name: string;
+    image_url: string;
+}
+export type ClientsResponse = Client[];
