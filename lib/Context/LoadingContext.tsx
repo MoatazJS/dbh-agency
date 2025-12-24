@@ -2,10 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-type AnimationContextType = {
-    isAnimating: boolean;
-    setIsAnimating: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { AnimationContextType } from "@/lib/interfaces/interface";
 
 const AnimationContext = createContext<AnimationContextType | null>(null);
 

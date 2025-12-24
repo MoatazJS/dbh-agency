@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ContactFormData } from '../validations/contactSchema';
+import { ContactFormData } from '../interfaces/interface';
 
 const API_URL = "https://www.dbh-agency.com/api"
 const apiClient = axios.create({

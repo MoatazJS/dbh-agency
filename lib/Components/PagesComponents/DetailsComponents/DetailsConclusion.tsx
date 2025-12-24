@@ -4,11 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface DetailsConclusionProps {
-    title?: string;
-    description?: string;
-    imageSrc?: string;
-}
+import { DetailsConclusionProps } from "@/lib/interfaces/interface";
 
 export default function DetailsConclusion({
     title = "THE CONCLUSION",

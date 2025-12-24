@@ -4,13 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// Interface for the component props
-// In the future, these will come from your API
-interface DetailsHeroProps {
-    title?: string;
-    description?: string;
-    imageSrc?: string;
-}
+import { DetailsHeroProps } from "@/lib/interfaces/interface";
 
 export default function DetailsHero({
     title = "Project Title",

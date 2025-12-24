@@ -4,11 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface DetailsSolutionProps {
-    title?: string;
-    description?: string;
-    imageSrc?: string;
-}
+import { DetailsSolutionProps } from "@/lib/interfaces/interface";
 
 export default function DetailsSolution({
     title = "THE SOLUTION",

@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-interface DetailsChallengeProps {
-    title?: string;
-    description?: string;
-    imageSrc?: string;
-}
-
-
+import { DetailsChallengeProps } from "@/lib/interfaces/interface";
 export default function DetailsChallenge({
     title = "THE CHALLENGE",
     description = "Every masterpiece begins with a problem to solve. Our challenge was to re-imagine the brand identity in a way that resonates with a modern, digital-first audience while preserving the core heritage. We needed to bridge the gap between tradition and innovation, creating a visual language that speaks volume without saying a word.",

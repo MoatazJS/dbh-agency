@@ -6,13 +6,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface WorkItem {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-}
+import { WorkItem } from "@/lib/interfaces/interface";
 
 const workItems: WorkItem[] = [
   {
