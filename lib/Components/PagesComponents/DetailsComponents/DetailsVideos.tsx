@@ -1,31 +1,14 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { ProjectVideo } from "@/lib/interfaces/interface";
+import { DetailsVideosProps } from "@/lib/interfaces/interface";
 
-// Mock Data - YouTube Embed URLs
-
-const VIDEOS = [
-    {
-        id: 1,
-        url: "https://www.youtube.com/embed/LXb3EKWsInQ?si=7Y7y7y7y7y7y7y7y", // Example Landscape
-        title: "Main Brand Film",
-        type: "landscape"
-    },
-    {
-        id: 2,
-        url: "https://www.youtube.com/embed/jfKfPfyJRdk?si=8z8z8z8z8z8z8z8z", // Lofi Girl (Landscape usually, but fits anywhere)
-        title: "Behind the Scenes",
-        type: "portrait"
-    },
-    {
-        id: 3,
-        url: "https://www.youtube.com/embed/5qap5aO4i9A?si=9x9x9x9x9x9x9x9x", // Lofi Hip Hop
-        title: "Campaign Teaser",
-        type: "portrait"
+export default function DetailsVideos({ videos = [] }: DetailsVideosProps) {
+    if (!videos || videos.length === 0) {
+        return null;
     }
-];
 
-export default function DetailsVideos() {
     return (
         <section className="w-full py-12 container mx-auto px-4 md:px-6">
             <div className="flex flex-col gap-6 mb-8">
@@ -35,9 +18,9 @@ export default function DetailsVideos() {
                 <div className="w-1/2 h-1 bg-gradient-to-r from-primary to-transparent mt-4 rounded-full" />
             </div>
 
-            {/* Grid Layout */}
+            {/* Grid Layout conforming to 'stick next to each other' */}
             <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 h-[800px] md:h-[600px] w-full bg-card/50 border border-primary/20 rounded-xl overflow-hidden shadow-2xl shadow-primary/5 p-1 gap-1">
-                {VIDEOS.slice(0, 3).map((video, index) => {
+                {videos.slice(0, 3).map((video, index) => {
                     // Dynamic classes based on index to create the Bento Grid
                     // Index 0: Main large video (2x2)
                     // Index 1: Top right (1x1)
@@ -58,10 +41,8 @@ export default function DetailsVideos() {
                                 gridClass
                             )}
                         >
-                            {/* Overlay for theme tinting (optional, removed for clear video access but kept generic border) */}
-
                             <iframe
-                                src={video.url}
+                                src={video.video_url}
                                 title={video.title}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerPolicy="strict-origin-when-cross-origin"

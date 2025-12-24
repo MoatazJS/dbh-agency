@@ -68,3 +68,7 @@ export interface ProjectDetails {
     images: ProjectImage[];
     videos: ProjectVideo[];
 }
+
+export interface DetailsVideosProps {
+    videos?: ProjectVideo[];
+}
