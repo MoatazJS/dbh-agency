@@ -258,67 +258,69 @@ export default function WorkSection() {
               >
                 {/* Card Container - Reduced height */}
                 <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-4">
-                  <div
-                    className="relative w-full h-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] max-h-[350px] sm:max-h-[400px] md:max-h-[450px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
-                  >
-                    {/* Image */}
-                    <Image
-                      src={workItems[currentIndex].image}
-                      alt={workItems[currentIndex].title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                    />
+                  <Link href={`/project-details/${workItems[currentIndex].id}`} className="block w-full h-full">
+                    <div
+                      className="relative w-full h-full max-w-[320px] sm:max-w-[400px] md:max-w-[500px] max-h-[350px] sm:max-h-[400px] md:max-h-[450px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer"
+                    >
+                      {/* Image */}
+                      <Image
+                        src={workItems[currentIndex].image}
+                        alt={workItems[currentIndex].title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                      />
 
-                    {/* Gradient Overlay - Always visible for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80" />
+                      {/* Gradient Overlay - Always visible for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80" />
 
-                    {/* Hover Overlay - Full color change */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/90 to-blue-600/90 opacity-0 group-hover:opacity-90 transition-opacity duration-500 mix-blend-overlay" />
+                      {/* Hover Overlay - Full color change */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/90 to-blue-600/90 opacity-0 group-hover:opacity-90 transition-opacity duration-500 mix-blend-overlay" />
 
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="relative z-10"
-                      >
-                        {/* Removed category usage */}
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 font-artistic">
-                          {workItems[currentIndex].title}
-                        </h3>
-                        <p className="text-zinc-300 text-xs sm:text-sm md:text-base line-clamp-3 mb-4">
-                          {workItems[currentIndex].description}
-                        </p>
-                      </motion.div>
+                      {/* Content Overlay */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                          className="relative z-10"
+                        >
+                          {/* Removed category usage */}
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 font-artistic">
+                            {workItems[currentIndex].title}
+                          </h3>
+                          <p className="text-zinc-300 text-xs sm:text-sm md:text-base line-clamp-3 mb-4">
+                            {workItems[currentIndex].description}
+                          </p>
+                        </motion.div>
 
-                      {/* Floating particles on hover */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        {[...Array(6)].map((_, i) => (
-                          <motion.div
-                            key={i}
-                            className="absolute w-2 h-2 bg-yellow-400 rounded-full"
-                            style={{
-                              left: `${(i * 41 + 17) % 100}%`,
-                              top: `${(i * 59 + 31) % 100}%`,
-                            }}
-                            animate={{
-                              y: [0, -150],
-                              opacity: [0, 1, 0],
-                            }}
-                            transition={{
-                              duration: 2 + (i % 3),
-                              repeat: Infinity,
-                              delay: i * 0.25,
-                            }}
-                          />
-                        ))}
+                        {/* Floating particles on hover */}
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                          {[...Array(6)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="absolute w-2 h-2 bg-yellow-400 rounded-full"
+                              style={{
+                                left: `${(i * 41 + 17) % 100}%`,
+                                top: `${(i * 59 + 31) % 100}%`,
+                              }}
+                              animate={{
+                                y: [0, -150],
+                                opacity: [0, 1, 0],
+                              }}
+                              transition={{
+                                duration: 2 + (i % 3),
+                                repeat: Infinity,
+                                delay: i * 0.25,
+                              }}
+                            />
+                          ))}
+                        </div>
+
+                        {/* Glow effect */}
+                        <div className="absolute -inset-2 bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-blue-500/0 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10" />
                       </div>
-
-                      {/* Glow effect */}
-                      <div className="absolute -inset-2 bg-gradient-to-r from-yellow-500/0 via-yellow-500/30 to-blue-500/0 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10" />
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
