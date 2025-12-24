@@ -37,15 +37,15 @@ export default function BrandsSection() {
                 >
                     <span className="text-primary font-mono tracking-widest text-sm mb-4 block uppercase">Our Partners</span>
                     <h2 className="text-4xl md:text-6xl font-black font-artistic uppercase text-white">
-                        Building <span className="text-primary">Legacies</span> <br /> Together
+                        <span className="text-primary">Building Legacies</span> <br /> <span className="bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">Together</span>
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-16 items-center justify-items-center">
+                <div className="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
                     {isLoading ? (
                         // Skeleton Loading
                         [...Array(10)].map((_, i) => (
-                            <div key={i} className="w-full h-24 bg-zinc-900/50 rounded-lg animate-pulse" />
+                            <div key={i} className="w-32 h-24 bg-zinc-900/50 rounded-lg animate-pulse" />
                         ))
                     ) : (
                         brands.map((brand, i) => (
@@ -55,9 +55,9 @@ export default function BrandsSection() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.05 }}
-                                className="group relative w-full h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100"
+                                className="group relative w-32 md:w-40 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100 flex-shrink-0"
                             >
-                                <div className="relative w-32 h-32 md:w-40 md:h-24">
+                                <div className="relative w-full h-full">
                                     <Image
                                         src={brand.image_url}
                                         alt={brand.name}
