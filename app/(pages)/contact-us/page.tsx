@@ -88,7 +88,7 @@ export default function Contact() {
                                         </div>
                                         <div className="pt-2">
                                             <h3 className="text-xl font-bold text-white mb-2">Email Us</h3>
-                                            <p className="text-zinc-400 text-lg">contact@dbh.com</p>
+                                            <p className="text-zinc-400 text-lg">dbh.creative@gmail.com</p>
                                         </div>
                                     </div>
 
@@ -98,7 +98,12 @@ export default function Contact() {
                                         </div>
                                         <div className="pt-2">
                                             <h3 className="text-xl font-bold text-white mb-2">Visit Us</h3>
-                                            <p className="text-zinc-400 text-lg">123 Creative Avenue, Design District, Cairo, Egypt</p>
+                                            <p className="text-zinc-400 text-lg">
+                                                633 Abu Qir Street, Gianaclis<br />
+                                                In Front of Mostafa El Sallab<br />
+                                                Alexandria, Egypt<br />
+                                                Apartment 1, 5th Floor, Entrance 1
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

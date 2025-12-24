@@ -80,7 +80,7 @@ const ContactSection = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-muted-foreground">Email Us</p>
-                                    <p className="text-lg font-semibold">hello@dbh.agency</p>
+                                    <p className="text-lg font-semibold">dbh.creative@gmail.com</p>
                                 </div>
                             </div>
 
@@ -91,8 +91,10 @@ const ContactSection = () => {
                                 <div>
                                     <p className="text-sm text-muted-foreground">Visit Us</p>
                                     <p className="text-lg font-semibold">
-                                        123 Creative Avenue,<br />
-                                        Design District, NY 10001
+                                        633 Abu Qir Street, Gianaclis<br />
+                                        In Front of Mostafa El Sallab<br />
+                                        Alexandria, Egypt<br />
+                                        Apartment 1, 5th Floor, Entrance 1
                                     </p>
                                 </div>
                             </div>
