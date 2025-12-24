@@ -36,10 +36,10 @@ export interface DetailsHeroProps {
 }
 
 // --- Home Components ---
-export interface WorkItem {
+export interface Project {
     id: number;
     title: string;
-    category: string;
     description: string;
     image: string;
 }
+export type ProjectsResponse = Project[];

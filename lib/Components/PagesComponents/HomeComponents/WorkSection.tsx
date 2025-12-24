@@ -5,64 +5,52 @@ import Shuffle from "@/components/Shuffle";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-import { WorkItem } from "@/lib/interfaces/interface";
-
-const workItems: WorkItem[] = [
-  {
-    id: 1,
-    title: "Brand Revolution",
-    category: "Branding & Identity",
-    description: "Transforming a legacy brand into a modern powerhouse",
-    image: "/placeholder-work-1.jpg",
-  },
-  {
-    id: 2,
-    title: "Digital Dreams",
-    category: "Web Experience",
-    description: "Crafting immersive digital experiences that captivate",
-    image: "/placeholder-work-2.jpg",
-  },
-  {
-    id: 3,
-    title: "Visual Poetry",
-    category: "Creative Direction",
-    description: "Where art meets commerce in perfect harmony",
-    image: "/placeholder-work-3.jpg",
-  },
-  {
-    id: 4,
-    title: "Future Forward",
-    category: "Campaign Strategy",
-    description: "Bold campaigns that break through the noise",
-    image: "/placeholder-work-4.jpg",
-  },
-];
+import { fetchHomeProjects } from "@/lib/Services/ApiServices";
+import { Project } from "@/lib/interfaces/interface";
 
 export default function WorkSection() {
+  const [workItems, setWorkItems] = useState<Project[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const data = await fetchHomeProjects();
+        if (Array.isArray(data)) {
+          setWorkItems(data);
+        }
+      } catch (error) {
+        console.error("Failed to load work items:", error);
+      }
+    };
+    loadProjects();
+  }, []);
+
   // Auto-rotate carousel every 5 seconds
   useEffect(() => {
+    if (workItems.length === 0) return;
     const timer = setInterval(() => {
       handleNext();
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [currentIndex, workItems]);
 
   const handleNext = () => {
+    if (workItems.length === 0) return;
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % workItems.length);
   };
 
   const handlePrev = () => {
+    if (workItems.length === 0) return;
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + workItems.length) % workItems.length);
   };
 
   const handleDotClick = (index: number) => {
+    if (workItems.length === 0) return;
     setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   };
@@ -81,6 +69,10 @@ export default function WorkSection() {
       opacity: 0,
     }),
   };
+
+  if (workItems.length === 0) {
+    return null; // Or a loading skeleton
+  }
 
   return (
     <section id="work" className="relative min-h-screen py-12 md:py-20 overflow-hidden">
@@ -291,9 +283,7 @@ export default function WorkSection() {
                         transition={{ delay: 0.2 }}
                         className="relative z-10"
                       >
-                        <span className="text-yellow-400 text-xs sm:text-sm font-bold tracking-wider mb-2 block font-mono">
-                          {workItems[currentIndex].category}
-                        </span>
+                        {/* Removed category usage */}
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-3 font-artistic">
                           {workItems[currentIndex].title}
                         </h3>
@@ -400,3 +390,4 @@ export default function WorkSection() {
     </section>
   );
 }
+
