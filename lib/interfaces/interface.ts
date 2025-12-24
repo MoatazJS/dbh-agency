@@ -43,3 +43,28 @@ export interface Project {
     image: string;
 }
 export type ProjectsResponse = Project[];
+// Project Details
+export interface ProjectImage {
+    id: number;
+    project_id: number;
+    image_url: string;
+}
+
+export interface ProjectVideo {
+    id: number;
+    project_id: number;
+    title: string;
+    video_url: string;
+}
+export interface ProjectDetails {
+    id: number;
+    title: string;
+    description: string;
+    challenge: string;
+    solution: string;
+    conclusion: string;
+    result: string;
+    is_main: boolean;
+    images: ProjectImage[];
+    videos: ProjectVideo[];
+}
