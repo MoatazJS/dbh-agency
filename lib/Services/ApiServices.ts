@@ -40,6 +40,17 @@ export const fetchAllProjects = async () => {
         throw error;
     }
 };
+// Brands for Home page api call.
+export const fetchAllBrands = async () => {
+    try {
+        const response = await apiClient.get(`/clients`);
+        console.log('Brands Response:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching brands:', error);
+        throw error;
+    }
+};
 // Contact Form Api Call
 export const submitContactForm = async (data: ContactFormData) => {
     try {
