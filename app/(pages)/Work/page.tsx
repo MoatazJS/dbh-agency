@@ -29,6 +29,9 @@ export default function Work() {
         loadProjects();
     }, []);
 
+    const heroProject = projects[0];
+    const gridProjects = projects.slice(1);
+
     return (
         <>
             <main ref={containerRef} className="min-h-screen bg-black text-white selection:bg-pink-500 selection:text-white overflow-x-hidden">
@@ -40,7 +43,16 @@ export default function Work() {
                 {/* FEATURED HERO */}
                 <section className="relative h-[80vh] flex items-center justify-center overflow-hidden z-10 p-4 pt-32">
                     <motion.div style={{ y: yHero }} className="w-full max-w-6xl h-full max-h-[600px] relative rounded-[3rem] overflow-hidden border border-white/10 group">
-                        <div className="absolute inset-0 bg-zinc-900 animate-pulse" /> {/* Placeholder Image */}
+                        {heroProject ? (
+                            <Image
+                                src={heroProject.image || ""}
+                                alt={heroProject.title}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                        ) : (
+                            <div className="absolute inset-0 bg-zinc-900 animate-pulse" />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
                         <div className="absolute bottom-0 left-0 p-8 md:p-16 z-20">
@@ -49,17 +61,19 @@ export default function Work() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5 }}
                             >
-                                <span className="text-primary font-mono tracking-widest text-sm mb-4 block">FEATURED CASE</span>
+                                <span className="text-primary font-mono tracking-widest text-sm mb-4 block">FEATURED PROJECT</span>
                                 <h1 className="text-6xl md:text-8xl font-black mb-4 font-artistic leading-none uppercase">
-                                    <span className="text-primary">Silent</span> <br /> <span className="text-white">Force</span>
+                                    {heroProject ? (
+                                        <span className="text-primary">{heroProject.title}</span>
+                                    ) : (
+                                        <>
+                                            <span className="text-primary">Loading</span> <br /> <span className="text-white">...</span>
+                                        </>
+                                    )}
                                 </h1>
                                 <p className="max-w-md text-zinc-300 mb-8">
-                                    Rebranding a fintech giant into a sleek, silent powerhouse.
-                                    We stripped away the noise and left only the signal.
+                                    {heroProject?.description || "Loading project details..."}
                                 </p>
-                                <button className="bg-primary cursor-pointer text-primary-foreground px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black hover:scale-105 transition-all duration-300">
-                                    VIEW CASE STUDY
-                                </button>
                             </motion.div>
                         </div>
                     </motion.div>
@@ -76,7 +90,7 @@ export default function Work() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[300px]">
-                        {projects.map((project, i) => {
+                        {gridProjects.map((project, i) => {
                             // Bento Grid Pattern: [Large, Small, Small, Wide]
                             // 0: Large (2x2)
                             // 1: Small (1x1)
@@ -92,7 +106,7 @@ export default function Work() {
                                     key={project.id}
                                     initial={{ opacity: 0, y: 50 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ margin: "-10%" }}
+                                    viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
                                     className={cn(
                                         "relative group rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 cursor-default", // Removed cursor-pointer
