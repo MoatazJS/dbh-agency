@@ -27,7 +27,7 @@ export default function BrandsSection() {
     }, [])
 
     return (
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden">
             <div className="container mx-auto px-4 z-10 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
