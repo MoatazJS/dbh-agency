@@ -18,7 +18,19 @@ export const fetchHomeProjects = async () => {
         throw error;
     }
 };
+// Project Details with ID Function call
+export const fetchProjectWithId = async (id: number) => {
+    try {
+        const response = await apiClient.get(`/projects/${id}`);
+        console.log('Projects Response:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+        throw error;
+    }
+};
 
+// Contact Form Api Call
 export const submitContactForm = async (data: ContactFormData) => {
     try {
         const response = await axios.post('https://formspree.io/f/mojaykdb', data, {
