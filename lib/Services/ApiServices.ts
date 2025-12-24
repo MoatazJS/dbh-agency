@@ -8,10 +8,9 @@ const apiClient = axios.create({
         'Content-Type': 'application/json',
     },
 });
-
-export const fetchProjects = async () => {
+export const fetchHomeProjects = async () => {
     try {
-        const response = await apiClient.get('/projects');
+        const response = await apiClient.get('/home');
         console.log('Projects Response:', response.data);
         return response.data;
     } catch (error) {
