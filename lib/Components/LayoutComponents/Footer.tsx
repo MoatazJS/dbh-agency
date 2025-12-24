@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
 import {
     Dialog,
@@ -9,24 +9,24 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 
-import { faBehance, faTiktok } from "@fortawesome/free-brands-svg-icons";
+// import { faBehance, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const socialLinks = [
-    {
-        name: "TikTok",
-        href: "#",
-        icon: (props: any) => <FontAwesomeIcon icon={faTiktok} {...props} />,
-    },
+    // {
+    //     name: "TikTok",
+    //     href: "#",
+    //     icon: (props: any) => <FontAwesomeIcon icon={faTiktok} {...props} />,
+    // },
     { name: "Instagram", href: "#", icon: Instagram },
     { name: "Facebook", href: "#", icon: Facebook },
-    { name: "YouTube", href: "#", icon: Youtube },
-    { name: "LinkedIn", href: "#", icon: Linkedin },
-    {
-        name: "Behance",
-        href: "#",
-        icon: (props: any) => <FontAwesomeIcon icon={faBehance} {...props} />,
-    },
+    // { name: "YouTube", href: "#", icon: Youtube },
+    // { name: "LinkedIn", href: "#", icon: Linkedin },
+    // {
+    //     name: "Behance",
+    //     href: "#",
+    //     icon: (props: any) => <FontAwesomeIcon icon={faBehance} {...props} />,
+    // },
 ];
 
 export default function Footer() {
