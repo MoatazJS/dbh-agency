@@ -72,3 +72,12 @@ export interface ProjectDetails {
 export interface DetailsVideosProps {
     videos?: ProjectVideo[];
 }
+
+// Work Page
+export interface WorkProject {
+    id: number;
+    title: string;
+    description: string;
+    image: string | null;
+}
+export type WorkProjectsResponse = WorkProject[];
