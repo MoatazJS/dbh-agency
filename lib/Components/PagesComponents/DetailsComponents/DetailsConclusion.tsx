@@ -11,7 +11,7 @@ interface DetailsConclusionProps {
 }
 
 export default function DetailsConclusion({
-    title = "THE CONCLUSION2",
+    title = "THE CONCLUSION",
     description = "Our journey together resulted in more than just a visual update; it birthed a new era for the brand. By actively listening and iterating on feedback, we delivered a cohesive identity that stands tall in a crowded market. The final product is a testament to the power of collaboration and bold creative vision.",
     imageSrc = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop" // Placeholder
 }: DetailsConclusionProps) {
