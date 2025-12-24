@@ -5,11 +5,13 @@ import DetailsHero from "@/lib/Components/PagesComponents/DetailsComponents/Deta
 import DetailsSolution from "@/lib/Components/PagesComponents/DetailsComponents/DetailsSolution";
 import DetailsVideo from "@/lib/Components/PagesComponents/DetailsComponents/DetailsVideos";
 import { fetchProjectWithId } from "@/lib/Services/ApiServices";
+import { useParams } from "next/navigation";
 import React, { useEffect } from "react";
-
 export default function ProjectDetails() {
+    const { id } = useParams();
+
     useEffect(() => {
-        fetchProjectWithId(1);
+        fetchProjectWithId(Number(id));
     }, []);
     return (<>
         <DetailsHero />
