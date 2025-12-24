@@ -1,11 +1,15 @@
 "use client"
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ShootingStarsBackground } from "@/components/ShootingStarBackground";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import { fetchAllProjects } from "@/lib/Services/ApiServices";
 
 export default function Work() {
+    useEffect(() => {
+        fetchAllProjects();
+    }, []);
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: containerRef });
     const yHero = useTransform(scrollYProgress, [0, 1], [0, 200]);

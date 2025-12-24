@@ -29,7 +29,17 @@ export const fetchProjectWithId = async (id: number) => {
         throw error;
     }
 };
-
+// All Projects for Work page api call.
+export const fetchAllProjects = async () => {
+    try {
+        const response = await apiClient.get(`/work`);
+        console.log('Projects Response:', response.data);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+        throw error;
+    }
+};
 // Contact Form Api Call
 export const submitContactForm = async (data: ContactFormData) => {
     try {
