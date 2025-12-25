@@ -4,32 +4,40 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ShootingStarsBackground } from "@/components/ShootingStarBackground";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { fetchAllProjects } from "@/lib/Services/ApiServices";
-import { WorkProject } from "@/lib/interfaces/interface";
+import { fetchAllProjects, fetchAllBrands } from "@/lib/Services/ApiServices";
+import { WorkProject, Client } from "@/lib/interfaces/interface";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Work() {
     const [projects, setProjects] = useState<WorkProject[]>([]);
+    const [brands, setBrands] = useState<Client[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: containerRef });
     const yHero = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
     useEffect(() => {
-        const loadProjects = async () => {
+        const loadData = async () => {
             try {
-                const data = await fetchAllProjects();
-                if (Array.isArray(data)) {
-                    setProjects(data);
+                const [projectsData, brandsData] = await Promise.all([
+                    fetchAllProjects(),
+                    fetchAllBrands()
+                ]);
+
+                if (Array.isArray(projectsData)) {
+                    setProjects(projectsData);
+                }
+                if (Array.isArray(brandsData)) {
+                    setBrands(brandsData);
                 }
             } catch (error) {
-                console.error("Failed to load work projects:", error);
+                console.error("Failed to load data:", error);
             } finally {
                 setIsLoading(false);
             }
         };
-        loadProjects();
+        loadData();
     }, []);
 
     const heroProject = projects[0];
@@ -195,10 +203,15 @@ export default function Work() {
                     <div className="flex whitespace-nowrap animate-marquee">
                         {[...Array(2)].map((_, i) => (
                             <div key={i} className="flex gap-20 items-center mx-10">
-                                {["NIKE", "SPOTIFY", "TESLA", "APPLE", "RED BULL", "SONY", "ADIDAS", "GOOGLE"].map((client) => (
-                                    <span key={client} className="text-4xl md:text-6xl font-black text-primary/10 font-artistic hover:text-primary transition-colors cursor-default">
-                                        {client}
-                                    </span>
+                                {brands.map((brand) => (
+                                    <div key={brand.id} className="relative w-32 h-20 md:w-48 md:h-24 opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                                        <Image
+                                            src={brand.image_url}
+                                            alt={brand.name}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         ))}
