@@ -78,7 +78,7 @@ export default function Contact() {
                                         </div>
                                         <div className="pt-2">
                                             <h3 className="text-xl font-bold text-white mb-2">Call Us</h3>
-                                            <p className="text-zinc-400 text-lg">+20 100 000 0000</p>
+                                            <p className="text-zinc-400 text-lg">+201010104810<br />+201033661135</p>
                                         </div>
                                     </div>
 
